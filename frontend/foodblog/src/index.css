@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+CA+Guides&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+:root {
+  --primary-color: #ff6347; /* Tomato color */
+  --secondary-color: #f0f0f0; /* Light gray for secondary elements */
+  --text-color: black; /* Dark text color for readability */
+  --background-color: white; /* White background for the main content */
+  --link-color: #007bff; /* Bootstrap primary link color */
+  --link-hover-color: #0056b3; /* Darker shade for link hover effect */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  text-decoration: none !important;
+
+  font-family: Arial, sans-serif;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+  background-color: #fff;
+}
+
+/* navbar */
+
+.blog-logo {
+  color: rgb(187, 41, 41) !important;
+}
+.navbar-brand {
+  font-size: 20px !important;
+  font-weight: bold;
+  border: none !important;
+}
+
+.navbar {
+  background-color: var(--background-color) !important;
+  position: sticky !important;
+  width: 100% !important;
+  padding: 0.7rem !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 1000 !important;
+}
+
+/* .container {
+  color: black !important;
+  padding: 0.5rem 0.5rem !important;
+  margin: 4px !important;
+} */
+
+.navbar-toggler {
+  border: none !important;
+}
+
+.navbar-toggler-icon {
+  color: black !important;
+}
+
+button {
+  padding: 0rem !important;
+}
+
+.login,
+.recipie {
+  display: inline-block !important;
+  color: var(--primary-color) !important;
+  border: 2px solid var(--primary-color) !important;
+  opacity: 0.6 !important;
+  font-weight: bold;
+  width: fit-content !important;
+  font-size: 10px !important;
+  padding: 4px 8px !important;
+  border-radius: 30px !important;
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+.login:hover,
+.recipie:hover {
+  color: black !important;
+  opacity: 1 !important;
+}
+
+.search-box {
+  margin-top: 3px !important;
+
+  border-radius: 50px;
+  margin: 7px 8px 0px 0px !important;
+  width: 250px !important;
+  height: 35px !important;
+  position: relative !important;
+}
+
+
+@media only screen and (max-device-width: 425px) {
+  .search-box{
+    visibility: hidden !important;
+  }
+}
+
+
+
+/* hero section */
+
+header {
+  width: 100% !important;
+
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.hero-content {
+  background-image: url("./assets/OIP.webp");
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  width: 100% !important;
+  height: 500px !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  color: white !important;
+}
+.hero-content h3 {
+  font-size: 2.5rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.popular-choice {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.choice {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  margin: 1rem !important ;
+  padding: 1rem !important;
+  font-size: 30px !important;
+  text-align: center !important;
+}
+
+.tranding-card {
+  margin: 1rem !important;
+}
+
+.recipe {
+  overflow: auto !important;
+}
+
+/* footer */
+
+footer {
+  border-top: 1px solid black !important;
+  background-color: white !important;
+  box-shadow: 0 2px 4px rgba(87, 87, 87, 0.1) !important ;
+  display: flex !important ;
+  justify-content: center !important;
+
+  flex-direction: column !important;
+}
+
+/* log-in page */
+
+.login-page {
+  background-color: rgb(180, 170, 170);
+  opacity: 1;
+
+  padding: 2rem 1rem 2rem 1rem;
+  width: 70%;
+  height: 50%;
+  position: relative;
+  border-radius: 1em;
+  box-shadow: 0 0.188em 1.55em rgb(156, 156, 156);
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  
+}
+
+.login-container {
+  background-color: #d38173;
+  
+  height: 90vh !important;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75em;
+}
+
+/* .user-input:focus {
+    outline-color: rgb(32, 177, 255);
+} */
+
+.login-btn ,.register-btn {
+  width: fit-content ;
+  height: 2em;
+  font-size: 15px;
+  background-color: rgb(32, 177, 255);
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  transition: 0.5s;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+
+.login-btn:hover , .register-btn:hover {
+  transform: scale(1.1);
+}
+
+@media only screen and (min-device-width: 37em) {
+  .login-container {
+    font-size: 1em;
+  }
+
+  .login-page {
+    width: 60%;
+    height: 70%;
+  }
+}
+
+/* -------------------- DESKTOP OPTIMIZATION -------------------- */
+@media only screen and (min-device-width: 64em) {
+  /* .login-container {
+    font-size: 1.25em;
+  } */
+
+  .login-page {
+    width: 35%;
+    height: 55%;
+  }
+}
+
+
+/* recipe-section */
+
+.recipe-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+
+.recipe-card{
+  margin-top: 10px;
+  border-bottom: 1px solid #ccc;
+  box-shadow: #979292;
+  
+}
+
+.recipe-image{
+  margin-bottom: 10px;
+}
+
+
+
+
