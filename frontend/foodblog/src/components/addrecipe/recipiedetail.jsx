@@ -7,12 +7,15 @@ function recipiedetail() {
             <input
               type="text"
               className="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
+               name="title"
+                value={formData.title}
+                onChange={handleChange}
+                required
             />
             <label htmlFor="exampleInputEmail1">Description</label>
             <textarea
               className="form-control mb-5"
+              name='description'
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
             />

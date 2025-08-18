@@ -1,35 +1,37 @@
-import React, { useContext } from "react";
+import React, { createContext, useContext } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-import { Authcontext } from "./authentication";
+import { AuthContext } from "../AuthProvider";
 import { Link } from "react-router-dom";
 
 const login = () => {
   
 
-  const [phoneNo, setPhoneNo] = useState("");
+  const [username, setusername] = useState("");
   const [password, setPassword] = useState("");
-  const [email, setemail] = useState("")
+ 
   const [error, seterror] =useState('')
-  const{isLogein, setisLogedin}=useContext(Authcontext)
+  const{isLogein, setisLogedin}=useContext(AuthContext)
   const navigate= useNavigate()
 
    const handlesubmit = async (e) => {
     e.preventDefault();
     // Handle login logic here
-
+   console.log(username)
+   console.log(password)
    
     try{
       const response = await axios.post('http://127.0.0.1:8000/api/token/', {
-         phone_number: phoneNo,
-              email: email,
+              username:username,  
               password: password
       })
 
       localStorage.setItem('accessToken',response.data.access)
       localStorage.setItem('refreshToken',response.data.refresh)
+      
+      localStorage.setItem('username',username)
       console.log(response.data)
       console.log("login successfully")
       setisLogedin(true)
@@ -54,26 +56,17 @@ const login = () => {
            
               <input
                 onChange={(e) => {
-                  setPhoneNo(e.target.value);
+                  setusername(e.target.value);
                 }}
-                type="number"
+                type="text"
                 className="form-control mt-2 user-input"
                 
                 maxLength={13}
                 minLength={10}
-                placeholder="Enter your phone number"
+                placeholder="Enter your Username"
               />
 
-               <input
-                onChange={(e) => {
-                  setemail(e.target.value);
-                }}
-                type="email"
-                className="form-control mt-2 user-input"
-                
-                
-                placeholder="Enter your email"
-              />
+            
 
               <input
                 onChange={(e) => {
@@ -81,8 +74,7 @@ const login = () => {
                 }}
                 type="password"
                 className="form-control mt-3 user-input"
-                minLength={8}
-                maxLength={20}
+                
                 id="password"
                 placeholder="Enter your password"
               />

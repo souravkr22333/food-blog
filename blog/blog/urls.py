@@ -1,13 +1,21 @@
-from django.urls import path
+
 from django.contrib import admin
-from accounts.views import Registerview ,Loginview
-from core.views import HelloWorldView
-from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # account base url
+    path('api/', include('accounts.urls')),
+    # recipe base url
+    path('api/', include('recipes.urls')),
     
-    path('register', Registerview.as_view()),
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh')
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

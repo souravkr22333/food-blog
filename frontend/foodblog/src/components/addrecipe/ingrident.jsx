@@ -19,7 +19,7 @@ function Addingrident() {
 
   return (
     <>
-       <div className="recipietime row">
+       {/* <div className="recipietime row">
               <div className="col-md-6">
                 <label htmlFor="preperationtime">Preperation Time</label>
                 <input
@@ -32,7 +32,9 @@ function Addingrident() {
                 <label htmlFor="cookingtime"> Cooking Time</label>
                 <input type="time" className="form-control" id="cookingtime" />
               </div>
-            </div>
+            </div> */}
+
+
 
             <div className="ingrident mt-5 mb-5">
               <div

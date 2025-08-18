@@ -10,7 +10,8 @@ import Login from './components/login';
  import Userview from './components/userview';
  import Addrecipe from './components/addrecipe';
  import Recipe from './components/recipe';
- import Authentication from './components/authentication';
+import Authprovider from './AuthProvider';
+
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
 
   return (
     <>
-    <Authentication>
+    <Authprovider>
     <BrowserRouter>
     <Navbar />
     <Routes>
@@ -26,15 +27,18 @@ function App() {
       <Route path="/" element={<Homepage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path='/recipe/:id' element={<Recipeview />} />
-      <Route path='/user' element={<Userview />} />
+      <Route path='/recipe/:slug' element={<Recipeview />} />
+      <Route path='/user/:username' element={<Userview />} />
+     
       <Route path='/addrecipe' element={<Addrecipe />} />
+
       <Route path='/recipe' element={<Recipe />} />
     </Routes>
     <Footer />
     
-    </BrowserRouter> 
-    </Authentication>     
+    </BrowserRouter>
+    </Authprovider> 
+         
       
     
     </>

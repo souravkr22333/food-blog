@@ -12,12 +12,13 @@ const treanding = () => {
               <div className="recipe d-flex  " >
 
 
-                <div className="tranding-card" style={{ width: '17rem' , border: '1px solid #ccc', padding: '10px' }}>
+                <div className="tranding-card" style={{ width: '17rem' , height:"25rem",border: '1px solid #ccc', padding: '10px' }}>
                     <div className="card-img" ><img src={cake} alt="cake" style={{ width: '15rem', height: '15rem', borderRadius:10  }} /></div>
-                    <div className="card-body" style={{wordWrap:'break-word'}}>
+                    <div className="card-body" >
                         <div className="card-title">Cake</div>
-                        <div className="card-desc">This is vaniwdgjvhdvcjhdvwjbhcidubiwucgbiwudcbdubcikycdwibdyhs</div>
-                    </div>
+                        <div className="card-desc" style={{ height:"6rem",width:"15rem",wordWrap:"break-word", overflow:"hidden",textOverflow:"ellipsis"}}>
+                            This is vaniwdgjvhdvcjh   ekjfnkw jfevbs efn fhb jhfbd jhdfc jadh cj jsfdh j jsdfhca jhdf  jhabcjs jhdsfvj jhdfvckd vwjbh cidubiwu luigseiut rllgbz,j lezfhj lzhbfz, ,kzrhcgbiwudcbdubc hvgh kvkjh jgikycdwi hjbjh lhbj kjhbjh kjhbjh kj,hblj kjhkbdyhs</div>
+                    </div> 
                 </div>
 
                 <div className="tranding-card" style={{ width: '17rem' , border: '1px solid #ccc', padding: '10px' }}>

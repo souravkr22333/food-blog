@@ -1,15 +1,19 @@
 import React from 'react'
 
-function instruction() {
+function instruction({data}) {
+  let instructions= data.instructions
   return (
     <>
       <div className="row mt-3 mb-3">
         <div className="col-md-8">
             <h3>Instructions</h3>
-            <p>Step 1: Choose your favorite color</p>
-            <p>Step 2: Choose your favorite animal</p>
-            <p>Step 3: Choose your favorite food</p>
-            <p>Step 4: Click the submit button</p>   
+            <div className="ins ms-3 fs-4">
+             {instructions?.map((ins,index)=>(
+                    <p key={index}>Step {ins.step_number}: {ins.description}</p>
+ 
+                  ))}
+            </div>
+            
         </div>
 
         <div className="col-md-4">
@@ -51,7 +55,7 @@ function instruction() {
                 
                 </div>
               
-            <p>Review: This is a great app!</p>
+            <p>Review: This is a great app jhbkjhbkma sd flkhdbf afbsh khfbjh khjfbljh khjfbj!</p>
             </div>
             
 

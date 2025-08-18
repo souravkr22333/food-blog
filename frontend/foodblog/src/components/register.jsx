@@ -6,7 +6,7 @@ import axios from "axios";
 
 
 const register = () => {
-    const [phoneNo, setPhoneNo] = useState("");
+    const [username, setusername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -21,8 +21,8 @@ const register = () => {
           alert("Passwords don't match");
           } else {
             try{
-            await axios.post("http://127.0.0.1:8000/register", {
-              phone_number: phoneNo,
+             await axios.post("http://127.0.0.1:8000/api/register", {
+              username:username,
               email: email,
               password: password
               }).then((response) => {
@@ -51,12 +51,12 @@ const register = () => {
             <form>
               <div className="mb-3" >
                 
-                <input onChange={(e) => setPhoneNo(e.target.value)}
-                  type="number"
+                <input onChange={(e) => setusername(e.target.value)}
+                  type="text"
                   className="form-control mt-2"
-                  placeholder="Phone Number"
+                  placeholder="Username"
                 />
-                <small className="text-danger">{error.phone_number}</small>
+                <small className="text-danger">{error.username}</small>
                 
                 <input onChange={(e) => setEmail(e.target.value)}
                   type="email"

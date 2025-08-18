@@ -1,20 +1,24 @@
 import React from 'react'
 
-function nutrition() {
+function nutrition({data}) {
+  let ingredients= data.ingredients
+  let nutritions= data.nutritions
+  
   return (
     <>
       <div className="row">
         <div className="col-md-8">
             <div className="ingedrient">
                 <h3>Ingedrient</h3>
+                <div className="ing fs-4">
                 <ul>
-                    <li><p>Eggs</p></li>
-                    <li><p>maida</p></li>
-                    <li><p>maida</p></li>
-                    <li><p>maida</p></li>
-                    <li><p>maida</p></li>
-                    <li><p>maida</p></li>
+                  {ingredients?.map((ing,index)=>(
+                    <li key={index}><p>{ing.item}:{ing.quantity}</p> </li>
+                  ))}
+                    
+                  
                 </ul>
+                </div>
                 
                 
             </div>
@@ -23,11 +27,11 @@ function nutrition() {
             <div className="nutrition-facts">
                 <h3>Nutrition Facts</h3>
                 <ul>
-                    <li><p>Calories</p></li>
-                    <li><p>Protein</p></li>
-                    <li><p>Carbohydrates</p></li>
-                    <li><p>Fat</p></li>
-                    <li><p>Cholesterol</p></li>
+                   {nutritions?.map((nut,index)=>(
+                    <li key={index}><p>{nut.item}</p></li>
+                  ))}
+                    
+                    
                 </ul>
 
             </div>

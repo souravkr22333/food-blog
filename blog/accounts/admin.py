@@ -1,16 +1,23 @@
 from django.contrib import admin
-from .models import User
+from .models import User, UserProfile
 
 # Register your models here.
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('id','phone_number','email','user_bio')
+    list_display = ('id','username','email')
     search_fields = ('id',)
-    ordering = ('phone_number',)
-    list_filter = ('phone_number',)
+    ordering = ('username',)
+    list_filter = ('username',)
   
     fieldsets = (
-        (None, {'fields': ('phone_number','email', 'password')}),
+        (None, {'fields': ('username','email', 'password')}),
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser',  'user_permissions')}),
     )
     
+
+@admin.register(UserProfile)
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = ('id','username','user_bio','name','date_of_birth')
+    search_fields = ('id',)
+    
+
