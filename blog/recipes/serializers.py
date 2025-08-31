@@ -3,6 +3,7 @@
 from rest_framework import serializers
 from .models import Recipe, Ingredient, Instruction,Nutritions
 
+
 class IngredientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ingredient
@@ -18,19 +19,29 @@ class InstructionSerializer(serializers.ModelSerializer):
         model = Instruction
         fields = ['step_number', 'description']
 
+
+
 class RecipeSerializer(serializers.ModelSerializer):
+    user = serializers.PrimaryKeyRelatedField(
+        read_only=True,
+        default=serializers.CurrentUserDefault()
+        
+    )
+
+
+    name=serializers.CharField(source='user.profile.name')
+    user_image=serializers.ImageField(source='user.profile.image')
+    username=serializers.CharField(source='user.profile.username')
     ingredients = IngredientSerializer(many=True)
     instructions = InstructionSerializer(many=True)
     nutritions=nutritionSerializer(many=True)
 
-    user = serializers.PrimaryKeyRelatedField(
-        read_only=True,
-        default=serializers.CurrentUserDefault()
-    )
+   
+    
     
     class Meta:
         model = Recipe
-        fields = ['user', 'title', 'description','prep_time','slug','cook_time','recipe_image','ingredients', 'instructions','nutritions', 'created_at']
+        fields = ['user', 'title','name','user_image','username', 'description','prep_time','slug','cook_time','recipe_image','ingredients', 'instructions','nutritions', 'created_at']
 
     def create(self, validated_data):
         ingredients_data = validated_data.pop('ingredients')
@@ -54,4 +65,10 @@ class RecipeSerializer(serializers.ModelSerializer):
         if obj.recipe_image:
             request = self.context.get('request')
             return request.build_absolute_uri(obj.recipe_image.url)
+        return None
+    
+    def get_user_image_url(self,obj):
+        if obj.user_image:
+            request = self.context.get('request')
+            return request.build_absolute_uri(obj.user_image.url)
         return None

@@ -14,6 +14,13 @@ const navbar=() =>{
   const [expanded, setExpanded] = useState(false);
   const {isLogedin , setisLogedin}=useContext(AuthContext)
     const navigate= useNavigate()
+
+    if(!isLogedin){
+      setisLogedin(false)
+    }
+    
+
+    
     const handlelogout=() =>{
       localStorage.removeItem('accessToken')
       localStorage.removeItem('refreshToken')
@@ -29,15 +36,7 @@ const navbar=() =>{
          <Navbar.Toggle aria-controls="basic-navbar-nav" className='me-2' />
         <Navbar.Brand className='me-auto' href="#home">Food<span className='blog-logo'>Blog</span></Navbar.Brand>
 
-          {/* Login button - only shows when navbar is collapsed
-        {!expanded && (
-          <Button 
-            variant="outline-light" 
-            className="d-lg-none ms-auto me-2"
-          >
-            Login
-          </Button>
-        )} */}
+         
         
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto ms-3 my-2 my-lg-0" >

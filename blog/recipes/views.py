@@ -30,10 +30,19 @@ class RecipeDetailView(generics.RetrieveUpdateDestroyAPIView):
     def get_queryset(self):
         return Recipe.objects.filter(user=self.request.user)
     
+
+    
 class RecipeListView(generics.ListAPIView):
     serializer_class = RecipeSerializer
     def get_queryset(self):
         return Recipe.objects.all()
+    
+
+class TrandingView(generics.ListAPIView):
+    serializer_class = RecipeSerializer
+    def get_queryset(self):
+        return Recipe.objects.all().order_by('-created_at')[:10]
+    
     
 
 
@@ -45,6 +54,9 @@ class RecipecardView(APIView):
     permission_classes = [AllowAny]
     def get(self, request, slug):
         recipe = get_object_or_404(Recipe, slug=slug)  # 404 if not found
+        user=recipe.user
        
+       
+        
         serializer = RecipeSerializer(recipe, context={'request': request})
         return Response(serializer.data, status=status.HTTP_200_OK)

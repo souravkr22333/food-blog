@@ -20,7 +20,9 @@ function recipeview() {
     const [instructions, setInstructions] = useState([]);
     const [nutritions , setnutritions]= useState([]);
     const [recipeimg, setRecipeimg] = useState([]);
-    const [user, setuser]=useState("")
+    const [name, setname]=useState("")
+    const [userimage,setuserimage] = useState("");
+    const [username,setusername]=useState("")
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     
@@ -32,9 +34,12 @@ function recipeview() {
                 setRecipe(response.data);
                 setIngredients(response.data.ingredients);
                 setInstructions(response.data.instructions);
-                setnutritions(response.data.nutritions)
+                setnutritions(response.data.nutritions);
                 setRecipeimg(response.data.recipe_image);
-                setuser(response.data.user.email)
+                setname(response.data.name);
+                setuserimage(response.data.user_image);
+                setusername(response.data.username)
+               
                 
             } catch (err) {
                 setError("Recipe not found!");
@@ -42,6 +47,7 @@ function recipeview() {
                 setLoading(false);
             }
         };
+        
         fetchRecipe();
     }, []);
 
@@ -56,7 +62,7 @@ function recipeview() {
         <div className="container mt-5 mb-4">
 
         <Recipeimg  data={{recipetitle:recipe.title,recipedescription:recipe.description, recipeimg:recipeimg}}/>
-        <User  data={user} />
+        <User  data={{name:name,userimage:userimage,username:username}} />
         <Nutrition  data={{ingredients:ingredients,nutritions:nutritions}} />
         <Instruction  data={{instructions:instructions}}/>
         

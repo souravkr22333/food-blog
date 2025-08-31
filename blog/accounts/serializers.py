@@ -26,7 +26,7 @@ class RecipeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Recipe
-        fields = ['title',  'recipe_image','slug']
+        fields = ['title',  'recipe_image','slug','description']
 
 class UserProfileSerializer(serializers.ModelSerializer):
     username = serializers.CharField(source='user.username')

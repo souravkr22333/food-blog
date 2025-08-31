@@ -62,7 +62,7 @@ const login = () => {
                 className="form-control mt-2 user-input"
                 
                 maxLength={13}
-                minLength={10}
+               
                 placeholder="Enter your Username"
               />
 

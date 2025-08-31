@@ -18,10 +18,7 @@ const popularchoice = () => {
                   <i className="fa-solid fa-utensils"></i>
                   <p>Dinner</p>
                 </div>
-                <div className="choice">
-                  <i className="fa-solid fa-cake-slice"></i>
-                  <p>Dessert</p>
-                </div>
+               
                 <div className="choice">
                   <i className="fa-solid fa-mug-saucer"></i>
                   <p>Drinks</p>

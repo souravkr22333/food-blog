@@ -4,7 +4,7 @@ function userprofile({data}) {
 
   return (
     <>
-      <div className="userprofile border-bottom">
+      <div className="userprofile ">
         <div className="row d-flex justify-content-space-between align-item-center">
             <div className="col">
                 <div className="userdetail d-flex justify-content-space-center align-item-center" style={{flexDirection:"column"}}>

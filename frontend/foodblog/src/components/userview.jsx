@@ -28,6 +28,7 @@ useEffect(() => {
                 },
                 recipes: response.data.recipes || []
             });
+           
             
         } catch (error) {
             console.log("Error fetching data", error.response);
@@ -46,6 +47,9 @@ useEffect(() => {
     <div className="container mt-3 justified">
       
        <Userprofile data={{username:profileData.user.username,Name:profileData.user.name,userbio:profileData.user.user_bio,userimage:profileData.user.image_url}} />
+       </div>
+       <hr />
+       <div className="container mt-3 justified">
        <Userrecipe data={{userrecipe:profileData.recipes}} />
     </div>
      

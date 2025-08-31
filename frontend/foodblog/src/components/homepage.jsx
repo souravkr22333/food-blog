@@ -3,6 +3,7 @@ import Herosection from "./homepage/herosection";
 import Popularchoice from "./homepage/popularchoice";
 import Treanding from "./homepage/treanding";
 import Signup from "./homepage/signup";
+import AdvancedStarRating from "../components/starrating";
 
 const homepage = () => {
   return (
@@ -19,6 +20,11 @@ const homepage = () => {
           {/* tranding recipes section */}
 
           <Treanding />
+          {/* star rating demo */}
+          <AdvancedStarRating />
+
+
+          
 
           
              
